@@ -80,6 +80,7 @@
 }
 .share-poster div img{
     width:.26rem;
+    height:.26rem;
     display:block;
     margin-right:-.2rem;
 }
