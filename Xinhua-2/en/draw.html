@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	 <link rel="stylesheet" href="../css/style.css">
+	 <link rel="stylesheet" href="../css/config.css">
+	 <link rel="stylesheet" href="../css/home.css">
+    <title>Lucky Draw</title>
+	 <style>
+		 .myRecord {
+		   width: 100%;
+		   padding-top: .5rem;
+		   text-align: center;
+		 }
+		 
+		 .recordImg {
+		   width: 3.35rem;
+		 }
+		 
+		 /* 抽奖 */
+		 
+		 .draw_list {
+		   width: 3.35rem;
+		   margin: .15rem auto;
+		   overflow: hidden;
+		   perspective: 1000;
+		    -webkit-perspective: 1000;
+		   transform-style: preserve-3d;
+			-webkit-transform-style: preserve-3d;
+		 }
+		 
+		 .list_item {
+		   float: left;
+		   position: relative;
+		   width: 1.07rem;
+		   height: 1.35rem;
+		   margin: .1rem .02rem;
+		   border-radius: .1rem;
+		   transform-style: preserve-3d;
+			-webkit-transform-style: preserve-3d;
+			/* transition:all 1s; */
+		 }
+		 
+		 .list_item_pos {
+		   position: absolute;
+		   top: 0;
+		   left: 0;
+		   width: 100%;
+		   height: 100%;
+		   border-radius: .1rem;
+		   backface-visibility: hidden; /*隐藏被旋转元素的背面*/
+		   transition: all 0.6s;
+		 }
+		 
+			.list_item_back span{
+					font-size: .14rem;
+					color: #333333;
+			}
+		 .list_item_back {
+		   background: #fff;
+		   display: flex;
+		   justify-content: center;
+		   align-items: center;
+		   transform: rotateY(180deg);
+			-webkit-transform: rotateY(180deg);
+		 }
+		 
+		 .list_item_back text {
+		   font-size: .12rem;
+		   color: #999;
+		 }
+		 
+		 /*背面变前面*/
+		 
+		 .list_back_front {
+		   transform: rotateY(0deg);
+			-webkit-transform: rotateY(0deg);
+		 }
+		 
+		 /*前面变背面*/
+		 
+		 .list_front_back {
+		   transform: rotateY(180deg);
+			-webkit-transform: rotateY(180deg);
+		 }
+		 
+		 .drawText{
+		   font-size: .16rem;
+		   color: #fff;
+		 }
+		 .drawNumber{
+		   color: #ffbc3c;
+		 }
+		 .drawHistory{
+			 display:block;
+		   font-size: .15rem;
+		   text-decoration: underline;
+		   color: #fff;
+		   margin-top: .13rem;
+		 }
+		 .list_item.rotate{
+			 animation-duration: 1s;
+			 -webkit-animation-duration: 1s;
+			 animation-name: rotate180;
+			 -webkit-animation-name: rotate180;
+			 animation-fill-mode: both;
+			 -webkit-animation-fill-mode: both;
+		 }
+		 /* 旋转动画 */
+		 @keyframes rotate180{
+		 	from{
+				transform: rotateY(0);
+				-webkit-transform: rotateY(0);
+			}
+		 	to{
+				transform: rotateY(-180deg);
+				-webkit-transform: rotateY(-180deg);
+			}
+		 }
+		 @-webkit-keyframes rotate180{
+		 	from{
+					transform: rotateY(0);
+					-webkit-transform: rotateY(0);
+				}
+		 	to{
+					transform: rotateY(-180deg);
+					-webkit-transform: rotateY(-180deg);
+				}
+		 }
+	 </style>
+</head>
+<body>
+	<!-- index  -->
+	<!--  https://xhsilkroad.5xing.com.cn/assets/mpimg  -->
+	<div class="content index_bg">
+		<div class="myRecord">
+		  <img src="https://xhsilkroad.5xing.com.cn/assets/img/lucky-draw.png" class="recordImg" />
+		  <div class="draw_list">
+			  <!-- 翻牌 -->
+		    <div class="list_item">
+		      <div class="list_item_pos list_item_back">
+		        <span>Thank you for your patronage!</span>
+		      </div>
+		      <img class="list_item_pos list_item_front" src="https://xhsilkroad.5xing.com.cn/assets/mpimg/images/b_draw-item.png"  />
+		    </div>
+			 <div class="list_item">
+			   <div class="list_item_pos list_item_back">
+			     <span>Thank you for your patronage!</span>
+			   </div>
+			   <img class="list_item_pos list_item_front" src="https://xhsilkroad.5xing.com.cn/assets/mpimg/images/b_draw-item.png"  />
+			 </div>
+			 <div class="list_item">
+			   <div class="list_item_pos list_item_back">
+			     <span>Thank you for your patronage!</span>
+			   </div>
+			   <img class="list_item_pos list_item_front" src="https://xhsilkroad.5xing.com.cn/assets/mpimg/images/b_draw-item.png"  />
+			 </div>
+			 <div class="list_item">
+			   <div class="list_item_pos list_item_back">
+			     <span>Thank you for your patronage!</span>
+			   </div>
+			   <img class="list_item_pos list_item_front" src="https://xhsilkroad.5xing.com.cn/assets/mpimg/images/b_draw-item.png"  />
+			 </div>
+			 <div class="list_item">
+			   <div class="list_item_pos list_item_back">
+			     <span>Thank you for your patronage!</span>
+			   </div>
+			   <img class="list_item_pos list_item_front" src="https://xhsilkroad.5xing.com.cn/assets/mpimg/images/b_draw-item.png"  />
+			 </div>
+			 <div class="list_item">
+			   <div class="list_item_pos list_item_back">
+			     <span>Thank you for your patronage!</span>
+			   </div>
+			   <img class="list_item_pos list_item_front" src="https://xhsilkroad.5xing.com.cn/assets/mpimg/images/b_draw-item.png"  />
+			 </div>
+			 <!-- end -->
+		  </div>
+		  <div class="drawText">
+		    <!-- <span>还可以免费抽奖<span class="drawNumber"> 4 </span>次</span> -->
+		  </div>
+		  <a href="drawHistory.html" class="drawHistory">Your Prizes</a>
+		</div>
+	</div>
+	
+	
+	<script src="../js/jquery-1.8.3.min.js"></script>
+	<script src="../js/index.js"></script>
+	<script type="text/javascript" charset="utf-8">
+		"use strict";
+		$(document).ready(function(){
+			let index = localStorage.getItem('answer-draw-index') || 0;
+			drawText(index);
+			let time = null;
+			$('.draw_list').on('click','.list_item',function(){
+				let that = $(this);
+				if(index >0){
+					if(time === null){
+						index--;
+						localStorage.setItem('answer-draw-index',index);
+						$(this).addClass('rotate').siblings().removeClass('rotate');
+						drawText(index);
+					}else{
+						$alert({msg:'The operation is too fast!',duration:600});
+						clearTimeout(time)
+					}
+					time = setTimeout(function(){
+						time= null;
+						that.removeClass('rotate');
+					},2000);
+					
+				}else{
+					$alert({msg:"Apologize, please wait for the next prize draw！",duration:1500});
+				}
+				
+			})
+			function drawText(num){
+				$('.drawText').html('<span><span class="drawNumber"> '+num+' </span>lucky draws left</span>')
+			}
+			
+		});
+		
+	</script>
+		
+	</body>
+	</html>

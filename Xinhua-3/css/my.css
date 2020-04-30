@@ -1,0 +1,88 @@
+.top_wrap{ width: 100%; height: 1.1rem; background: #0071da; padding: .2rem .25rem 0; display: flex; box-sizing: border-box;}
+.avatar{ width: .5rem; height: .5rem; border-radius: 50%;overflow: hidden;}
+.avatar img{ width: .5rem; height: .5rem;}
+.user_info{ color: #fff; padding-left: .1rem;}
+.user_name{ font-size: .16rem; padding-bottom: .05rem;}
+.user_sub{ padding: 0 .05rem; font-size: .12rem; background: rgba(0, 0, 0, .3); height: .16rem; line-height: .16rem; border-radius: .09rem;}
+.mid_icons{ width: 92%; padding: .15rem 0; margin: -.7rem auto 0; background: #fff; border-radius: .1rem; display: flex; justify-content: space-around;}
+.icon_item{ text-align: center;padding: 0 .1rem;position: relative;}
+.icon_item img{ width: .19rem;}
+.icon_item .icon_txt{ font-size: .14rem; color: #333; padding-top: .04rem;}
+.icon_item a{position: absolute;top: 0;left: 0;width: 100%;height: 100%;opacity: 0;}
+
+.list_my{ background: #fff; margin-top: .1rem;}
+.item_my{ height: .5rem; padding: 0 .15rem; display: flex;}
+.icon_myItem{ width: 5%; padding-right: .15rem;}
+.icon_myItem image{ width: .16rem; height: .16rem; padding-top: .17rem;}
+.item_my .info_myItem{ width: 95%; height: .5rem; display: flex; align-items: center; justify-content: space-between; border-bottom: solid 1px #e7e7e7;position: relative;}
+.item_my .info_myItem button{position: absolute;width: 100%;height: 100%;opacity: 0;}
+.item_my:last-child .info_myItem{ border: none;}
+.item_my .info_myItem text{ flex: 1; font-size: .14rem; color: #333;}
+.item_my .info_myItem .arr_myItem{ width: .07rem; padding-left: .05rem; justify-content: end;}
+.item_my .info_myItem .arr_myItem image{ width: .07rem; height: .13rem;}
+
+/* 弹框 */
+.isRuleShow{ display: block;}
+.isRuleHide{ display: none;}
+.ruleZhezhao{ width: 100%; height: 100%; position: fixed; background:rgba(0, 0, 0, .7); z-index: 99999; top: 0; left: 0;}
+.ruleZhezhaoContent{ width: 80%; padding: .05rem 0; margin: 2% auto; position: relative;}
+.btn_close{ height: 50rpx!important; width: .25rem!important; position: absolute; top: .15rem; right: -.3rem;}
+.con_pop{ width: 100%; position: absolute; left: 0; top: .35rem; text-align: center;}
+.con_pop image{ width: 2.7rem;}
+.con_pop .tip_pop{ color: #fff; font-weight: bold;}
+
+.canvas_view{
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -9999;
+}
+.canvas{
+  opacity: 0;
+  position: absolute;
+  top: -99999999999rpx;
+  left: -9999999999rpx;
+  z-index: -999999;
+  width: 1.9rem;
+  height:3rem;
+}
+.icon_myItem img{
+    width:.16rem;
+    display:flex;
+    margin-top:.18rem;
+    margin-left:-5px;
+}
+.arr_myItem img{
+    width:.09rem;
+}
+
+/* 分享海报 */
+.share-poster{
+    position: fixed;
+    top:0;left:0;
+    background-color: rgba(0, 0, 0, .7);
+    width:100%;
+    height:100%;
+    z-index:9999999999999;
+    padding:.2rem 10%;
+    display:none;
+}
+.share-poster.active{
+    display:block;
+}
+.share-poster div{
+    display:flex;
+    justify-content: flex-end;
+    margin-bottom:.08rem;
+}
+.share-poster div img{
+    width:.26rem;
+    display:block;
+    margin-right:-.2rem;
+}
+.share-poster>img{
+    width:100%;
+}

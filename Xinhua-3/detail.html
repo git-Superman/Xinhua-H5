@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,  user-scalable=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/config.css">
+    <style>
+        .block1 div {
+            width: 100%;
+            height: 100%;
+        }
+
+        .block1 div img {
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .block2 {
+            width: 100%;
+            padding: 0 .12rem;
+            margin-bottom: 8px;
+            background-color: white;
+        }
+
+        .block2 div {
+            font-size: .16rem;
+            color: #333333;
+            padding: .16rem 0 .2rem;
+        }
+
+        .block3 .tit {
+            width: 100%;
+            height: 45px;
+            text-align: center;
+            line-height: 45px;
+            color: #0071DA;
+            font-size: .16rem;
+            border-bottom: 1px solid #e0e0e0;
+            background-color: white;
+        }
+
+        .block3 .detail {
+            padding: 0 .2rem;
+            background-color: white;
+        }
+
+        .block3 .detail p {
+            padding: .15rem 0;
+            color: #000;
+            font-size: .14rem;
+            line-height: 20px;
+        }
+
+        .block3 .detail img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .footer {
+            width: 100%;
+            height: 45px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            overflow: hidden;
+            border-top: 1px solid #e0e0e0;
+            background: #fff;
+        }
+
+        .footer>div {
+            width: 33.333%;
+            float: left;
+            border-right: 1px solid #e0e0e0;
+        }
+
+        .footer>div:last-child {
+            border: none;
+        }
+
+        .txt {
+            font-size: .14rem;
+            color: #666;
+            display: block;
+            height: 45px;
+            line-height: 45px;
+            text-align: center;
+        }
+
+        .txt:before {
+            content: '';
+            background-size: 20px 20px;
+            vertical-align: text-bottom;
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 0;
+            top: 0;
+            left: 0;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: top center;
+            margin-right: 3px;
+        }
+
+        .txt1:before {
+            background-image: url('./img/icon-consult.png');
+        }
+
+        .txt2:before {
+            background-image: url('./img/icon-collect.png');
+        }
+
+        .txt3:before {
+            background-image: url('./img/icon-subscribe.png');
+        }
+
+        .txt.active {
+            background: rgb(250, 129, 12);
+            color: #fff;
+        }
+
+        /* 弹框 */
+        .ruleZhezhao.active {
+            display: block;
+        }
+
+        .ruleZhezhao {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            background: rgba(0, 0, 0, .8);
+            z-index: 999;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+
+        .ruleZhezhaoContent {
+            width: 80%;
+            padding: .1rem 0;
+            margin: 40% auto;
+            position: relative;
+        }
+
+        .btn_close {
+            height: .25rem !important;
+            width: .25rem !important;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .con_pop {
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: .35rem;
+            background: #fff;
+            border-radius: .1rem;
+        }
+
+        .tit_pop {
+            height: .2rem;
+            border-left: solid .03rem #0071da;
+            margin: .2rem .15rem;
+            padding-left: .1rem;
+            font-size: .18rem;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .list_pop {
+            padding: .3rem;
+            border-top: solid 1px #e6e6e6;
+        }
+
+        .pop_item {
+            display: flex;
+            align-items: center;
+            font-size: .16rem;
+            color: #333;
+            margin-bottom: .2rem;
+        }
+
+        .pop_item img {
+            width: .16rem;
+            height: .16rem;
+            margin-right: .1rem;
+        }
+
+        .pop_item span {
+            display: flex;
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="block1">
+        <div><img src="./img/banner-1.jpg" alt=""></div>
+    </div>
+    <div class="block2">
+        <div>丝路智讯参考（第104期）</div>
+    </div>
+    <div class="block3">
+        <div class="tit">本期精彩</div>
+        <div class="detail">
+            <p>测试文字测试文字本期精彩测试文字测试文字本期精彩测试文字测试文字本期精彩测试文字测试文字本期精彩测试文字测试文字本期精彩测试文字测试文字本期精彩测试文字测试文字本期精彩</p>
+            <img src="./img/banner-2.jpg" alt="">
+        </div>
+    </div>
+    <div style="padding-top:.45rem"></div>
+    <div class="footer">
+        <div><a href="javascript:ruleZhezhao();" class="txt txt1">咨询</a> </div>
+        <div><span class="txt txt2">收藏</span> </div>
+        <div><a href="https://www.imsilkroad.com/db#/report/1/issue/130921" class="txt txt3 active">订阅</a> </div>
+    </div>
+
+
+    <!-- 分享海报 -->
+    <div class="share-poster">
+        <div><img class="img" src="./img/icon-close.png" alt=""></div>
+        <img src="./img/img-poster.jpg" alt="">
+    </div>
+
+
+
+    <div class="ruleZhezhao">
+        <div class='ruleZhezhaoContent'>
+            <div class="con_pop">
+                <div class="tit_pop">全国服务热线</div>
+                <div class="list_pop">
+                    <div class="pop_item">
+                        <img src="./img/icon-phone.png" />
+                        <span>电话：010-63077787</span>
+                    </div>
+                    <div class="pop_item">
+                        <img src="./img/icon-mail.png" />
+                        <span>邮箱：silkroad@xinhua.org</span>
+                    </div>
+                    <div class="pop_item">
+                        <img src="./img/icon-address.png" />
+                        <span>地址：北京市宣武门外大街甲1号环球财讯中心A座13层</span>
+                    </div>
+                </div>
+            </div>
+            <img src='./img/icon-close.png' class='btn_close ruleZhezhaoContent-close' />
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/index.js"></script>
+    <script>
+        ; $(document).ready(() => {
+            let list = localStorage.getItem('magazine-details');
+            list = JSON.parse(list);
+            if (!list) {
+                $alert({ msg: '参数错误,2秒后跳转到首页！', duration: 1800 });
+                setTimeout(() => {
+                    location.href = './index.html';
+                }, 2000);
+                return;
+            }
+            console.log(list);
+
+            init(list);
+            function init(item) {
+                $('.block2 div').text(item.title);
+                $('.detail p').text(item.desc);
+                $('.detail img').attr('src', item.imgSrc);
+            }
+
+            $('.footer .txt2').on('click', function () {
+                $alert({ msg: '收藏失败，请稍后再试！', duration: 1200 })
+            });
+
+        });
+        function ruleZhezhao() {
+            $('.ruleZhezhao').addClass('active');
+            $('.ruleZhezhaoContent-close').on('click', function () {
+                $('.ruleZhezhao').removeClass('active');
+            });
+        }
+
+    </script>
+</body>
+
+</html>

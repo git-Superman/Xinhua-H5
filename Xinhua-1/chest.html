@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Treasure Hunt</title>
+	 <link rel="stylesheet" href="css/style.css">
+	 <link rel="stylesheet" href="css/config.css">
+	 <link rel="stylesheet" href="css/ani.css">
+	 <link rel="stylesheet" href="css/chest.css">
+</head>
+<body>
+	<!-- 背景 图-->
+	<div name="background">
+	   <div class="sun"><img src="https://imsilkroad.5xing.com.cn/assets/mpimg/images/sun.png" /></div>
+	   <div class="cloud"><img src="https://imsilkroad.5xing.com.cn/assets/mpimg/images/cloud.png" /></div>
+	   <div class="footer"><img src="https://imsilkroad.5xing.com.cn/assets/mpimg/images/footer-bj.png" /></div>
+	</div>
+	
+	<!-- container 'https://imsilkroad.5xing.com.cn/assets/mpimg/ -->
+	<div>
+		<div >
+		  <div class="treasure">
+		  <div class="treasure_box">
+		    <div class="positionTop">Treasure</div>
+		    <div class="treasure_f">
+				 <!-- ① 挖宝 -->
+				 <!-- <chest wx:if="{{show}}" class="cm-chest" bind:alert="cmAlert"/>-->
+					<div class="cm-chest-boxs">
+					  <img class="cm-chest-boxs-bg" src="https://imsilkroad.5xing.com.cn/assets/mpimg/images/desert.png" />
+					  <div class="cm-chest-boxs-gaine">
+					    <div class="cm-chest-boxs-gaine-list" style="display:none">
+					      <img class="cm-chest-boxs-gaine-list-bg" src="https://imsilkroad.5xing.com.cn/assets/mpimg/images/scroll.png" />
+					      <img class="cm-chest-boxs-gaine-list-close" src="https://imsilkroad.5xing.com.cn/assets/mpimg/images/icon-close.png" />
+					      <div class="cm-chest-boxs-gaine-list-title">
+					        <img class="cm-chest-boxs-gaine-list-img"  src="https://imsilkroad.5xing.com.cn/assets/mpimg/images/icon-spade.png" />
+					        <!-- <span>X0</span> -->
+					      </div>
+					      <span class="cm-chest-boxs-gaine-list-text1">You' ve got 0 spades.</span>
+					      <span class="cm-chest-boxs-gaine-list-text2"></span>
+					      <img class="cm-chest-boxs-gaine-list-btn" src="https://imsilkroad.5xing.com.cn/assets/mpimg/images/button-DiggingTreasure.png" />
+					    </div>
+						 
+						 
+						 
+					    <div class="cm-chest-boxs-treasure">
+					      <div class="cm-chest-boxs-treasure-item item1">
+					        <img src="https://imsilkroad.5xing.com.cn/assets/mpimg/images/Treasure3.png" />
+					        <img src="https://imsilkroad.5xing.com.cn/assets/mpimg/images/treasure.png" />
+					      </div>
+					      <div class="cm-chest-boxs-treasure-item item2">
+					        <img src="https://imsilkroad.5xing.com.cn/assets/mpimg/images/Treasure2.png" />
+					        <img src="https://imsilkroad.5xing.com.cn/assets/mpimg/images/treasure.png" />
+					      </div>
+					      <img class="cm-chest-boxs-treasure-mand" src="https://imsilkroad.5xing.com.cn/assets/mpimg/images/DigTreasure.png" />
+					      <div class="cm-chest-boxs-treasure-item item3" >
+					        <img src="https://imsilkroad.5xing.com.cn/assets/mpimg/images/Treasure1.png" />
+					        <img src="https://imsilkroad.5xing.com.cn/assets/mpimg/images/treasure.png" />
+					      </div>
+					      
+					    </div>
+					  </div>
+					  <div class="cm-chest-spade">
+					    <span class="cm-chest-spade-text">1</span>
+					    <img src="https://imsilkroad.5xing.com.cn/assets/mpimg/images/icon-spade.png" />
+					  </div>
+					</div>
+				 <!-- end -->
+				 
+				 <!-- chest 弹出框 中奖纪录-->
+				  <!-- <chestAlert  class="chestAlert"/> -->
+				 <div class="cm-alert" style="display:none">
+					<div style="font-size:.12rem;text-shadow:  0 0 2px #EFA14C;-webkit-text-shadow:  0 0 2px #EFA14C;">You don't have any winning records yet</div>
+					<img style="position: absolute;bottom: -.4rem;left: 50%;margin-left: -.14rem;width: .28rem;" src="https://imsilkroad.5xing.com.cn/assets/mpimg/images/close-white.png" alt="">
+				 </div>
+				 <!-- end -->
+		    </div>
+		  </div>
+		  <div class="treasure_footer">
+		    <button class="button-share"><img src="https://imsilkroad.5xing.com.cn/assets/mpimg/images/botton-TreasureHouses.png" /></button>
+		    <button class="button-share"> <a href="javascript:showMaskLayer();"><img src="https://imsilkroad.5xing.com.cn/assets/mpimg/images/bag-Share.png" /></a> </button>
+		  </div>
+		</div>
+		
+		
+		<!-- 奖品 -->
+		<!-- <congratulations cont="{{container.cont}}" subcont="{{container.subcont}}" bind:submit="handleClickSubmit" bind:myevent="handleClickFA" class="congratulations" wx:if="{{conShow}}"></congratulations> -->
+		<!-- <div style="display:none" class="congratulations-bg">
+		  <div class="congratulations-padding" catchtap="handleClickPA">
+		    <div class="congratulations-padding2">
+		      <div class="congratulations-title">
+		        <img class="first" mode="widthFix" src="{{baseImage.answer}}" />
+		        <img class="last" mode="widthFix" bindtap="handleClickBG" src="{{baseImage.close}}" />
+		      </div>
+		      <div class="congratulations-box">
+		        <div class="first">
+		          <span class="congratulations-box-text1">{{cont}}</span>
+		          <span class="congratulations-box-text2">{{subcont}}</span>
+		          <span class="congratulations-box-text3" bindtap="handleClickPush">{{containerTest}}</span>
+		        </div>
+		        <div class="congratulations-editor">
+		          <div class="congratulations-editor-item">
+		            <span>Name：</span><input placeholder="Please enter your name"></input>
+		          </div>
+		          <div class="congratulations-editor-item">
+		            <span>Country/Region：</span><input placeholder="Please enter country/region"></input>
+		          </div>
+		          <div class="congratulations-editor-item">
+		            <span>Organization：</span><input placeholder="Organization name"></input>
+		          </div>
+		          <div class="congratulations-editor-item">
+		            <span>Contact Number：</span><input placeholder="Landline/Mobile phone"></input>
+		          </div>
+		          <div class="congratulations-editor-item">
+		            <span>E-mail：</span><input placeholder="Please enter your e-mail"></input>
+		          </div>
+		          <div class="congratulations-editor-submit">
+		            <img src="{{baseImage.submit}}" />
+		          </div>
+		        </div>
+		      </div>
+		      
+		    </div>
+		  </div>
+		</div> -->
+		<!-- end -->
+		
+		</div>
+		
+	</div>
+	
+	<!-- 分享 -->
+	<main class="mask-layer">
+		  <div>
+				<img src="http://www.5xing.com.cn/brochure/img/mask.png" alt="">
+		  </div>
+	 </main>
+	
+	
+	
+	<script src="js/jquery-1.8.3.min.js"></script>
+	<script src="js/index.js"></script>
+	<script>
+		"use strict";
+		// 奖品
+		
+			
+		function Winning(index){
+			let  spade = localStorage.getItem('spade') || 0;
+			if(index === null){
+				$('.cm-chest-spade .cm-chest-spade-text').text(spade);
+				return;
+			}
+			
+			let  gaine = [
+				// 未中奖 0 
+					{
+					  src: "https://imsilkroad.5xing.com.cn/assets/mpimg/images/icon-spade.png",
+					  cont:"You\' ve got "+spade+" spades.",
+					  subCont:'',
+					  btn: "https://imsilkroad.5xing.com.cn/assets/mpimg/images/button-DiggingTreasure.png"
+					},
+				// 未中奖 1
+					{
+					  src: "https://imsilkroad.5xing.com.cn/assets/mpimg/images/chest-empty.png",
+					  cont: "Oops! You didn't find any treasure this time.<br> Keep trying!",
+					  subCont: '',
+					  btn: "https://imsilkroad.5xing.com.cn/assets/mpimg/images/button-OnceMore.png"
+					},
+				// 中奖  2
+					{
+					  src: "https://imsilkroad.5xing.com.cn/assets/mpimg/images/chest-open.png",
+					  cont: "",
+					  subCont: '',
+					  btn: "https://imsilkroad.5xing.com.cn/assets/mpimg/images/button-ExchangePrizess.png"
+					}
+			];
+			
+			if(index<2 && index != 0){ 
+				spade>0?--spade:spade = 0;
+				spade == 0 ?index = 0:'';
+				localStorage.setItem('spade',spade);
+				
+			}
+			
+			$('.cm-chest-spade .cm-chest-spade-text').text(spade);
+			$('.cm-chest-boxs-gaine-list-img').attr('src',gaine[index]['src']);
+			$('.cm-chest-boxs-gaine-list-text1').html(gaine[index]['cont']);
+			$('.cm-chest-boxs-gaine-list-text2').text(gaine[index]['subCont']);
+			$('.cm-chest-boxs-gaine-list-btn').attr('src',gaine[index]['btn']).attr('data-id',index);
+			
+		}
+		function Cmalert(isAlert){
+			if(isAlert){
+				$('.treasure_box .positionTop').text('Treasure House');
+				$('.cm-chest-boxs').css('display','none');
+				$('.cm-alert').css('display','block');
+				$('.treasure_footer').css('display','none');
+				$('.treasure_box').css('height','5.2rem');
+			}else{
+				$('.treasure_box .positionTop').text('Treasure');
+				$('.cm-chest-boxs').css('display','block');
+				$('.cm-alert').css('display','none');
+				$('.treasure_footer').css('display','block');
+				$('.treasure_box').css('height','4.6rem');
+			}
+		}
+		;$(document).ready(function(){
+			Winning(null);
+			// Cmalert(false);
+			let showGaineList = function(isShow){
+				if(isShow){
+					$('.cm-chest-boxs-gaine-list').css('display','flex');
+				}else{
+					$('.cm-chest-boxs-gaine-list').css('display','none');
+				}
+			}
+			
+			
+			$('.cm-chest-boxs-gaine-list-close').on('click',function(){
+				showGaineList(false);
+			});
+			$('.cm-chest-spade').on('click',function(){
+				showGaineList(true);
+				Winning(0)
+			})
+			// 宝箱夺宝
+			$('.cm-chest-boxs-treasure-item').on('click','img',function(){
+				showGaineList(true);
+				Winning(1);
+			});
+			$('.cm-chest-boxs-gaine-list-btn').on('click',function(){
+				showGaineList(true);
+				Winning(1);
+			})
+			// 查看获奖纪录
+			$('.treasure_footer button:first-child img').on('click',function(){
+				Cmalert(true);
+			});
+			$('.cm-alert img').on('click',function(){
+				Cmalert(false);
+			})
+		});
+		
+		function showMaskLayer(){
+			$('.mask-layer').addClass('block').on('click', function () {
+			    $(this).removeClass('block');
+			})
+		}
+	</script>
+</body>
+</html>

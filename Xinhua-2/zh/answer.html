@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/config.css">
+	<link rel="stylesheet" href="../css/topic.css">
+	<title>新华丝路</title>
+	<style>
+
+	</style>
+</head>
+
+<body>
+	<!-- index  -->
+	<!--  https://xhsilkroad.5xing.com.cn/assets/mpimg  -->
+	<div>
+		<div class="box">
+			<!-- 答题模块 -->
+			<div class="content TopicModule">
+				<!-- 倒计时 -->
+				<div class="top text_c">
+					<div class='tit_n'>第1关</div>
+					<div class="progress">
+						<canvas id='myCanvas' width='60' height='60'></canvas>
+					</div>
+					<div class="seconds">60</div>
+				</div>
+				<!-- 题目，选项 -->
+				<div class="conList text_c">
+					<div class="tit">title</div>
+					<div class="sel_list">
+						<!-- <div class="sel_item">
+						   <img src='https://xhsilkroad.5xing.com.cn/assets/mpimg/images/check.png' />
+						   A北部
+						</div>
+						<div class="sel_item">
+						   <img src='https://xhsilkroad.5xing.com.cn/assets/mpimg/images/wrong.png' />
+						   B南部
+						</div> -->
+					</div>
+				</div>
+				<!-- 页数 -->
+				<div class="page">5/5</div>
+			</div>
+
+			<!-- 完成答题 -->
+			<div class="content result" style="display: none;">
+				<!-- 头像 -->
+				<div class="header">
+					<div class="hearder_img"><img src="../img/tab1-act.png" alt=""></div>
+				</div>
+				<div class="textList text_c">
+					<div class="tit">恭喜你, 完成答题！</div>
+					<!-- 分数 -->
+					<div class="branch"
+						style="background:url('https://xhsilkroad.5xing.com.cn/assets/mpimg/images/answerBranch.png') center center no-repeat;background-size:45%;text-align: center;">
+						<span class="num">20</span><span>分</span>
+					</div>
+					<!-- 正确率 -->
+					<div class="accuracy text_c">
+						<div class="flex1">
+							<div class="text1">0</div>
+							<div class="text2">回答正确/道</div>
+						</div>
+						<div class="line"></div>
+						<div class="flex1 flex2">
+							<div class="text1">0</div>
+							<div class="text2">回答错误/道</div>
+						</div>
+					</div>
+					<!-- 按钮 -->
+					<div class="buttons">
+						<a href="videoCity.html" class="look"
+							style="display:block;background:url('https://xhsilkroad.5xing.com.cn/assets/mpimg/images/answerBut.png')  bottom no-repeat;background-size:cover;text-align: center;">观看新华丝路省情视频</a>
+						<div class="display-flex-button">
+							<a href="home.html">
+								<div>返回首页</div>
+							</a>
+							<a href="javascript:showMaskLayer();">
+								<div>分享</div>
+							</a>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+
+
+			<div class="bottom_bg">
+				<img class="top" src="../img/bsj.png" />
+				<img src="#" class="bot" /></div>
+		</div>
+
+	</div>
+	<main class="mask-layer">
+		<div>
+			<img src="http://www.5xing.com.cn/brochure/img/mask.png" alt="">
+		</div>
+	</main>
+
+	<script src="../js/jquery-1.8.3.min.js"></script>
+	<script src="../js/index.js"></script>
+	<script src="../js/topic.js"></script>
+	<script type="text/javascript" charset="utf-8">
+		"use strict";
+
+		$(document).ready(function () {
+			// topic.js 
+			let answerID = localStorage.getItem('answerID') || null;
+			let topicData = getTopic(answerID).data;
+			let result = {
+				answerID,
+				index: 0,//题目索引
+				correct: 0,//正确数
+				leng: topicData.rows.length
+			}
+			if (answerID === null) {
+				$alert({ msg: 'Parameter error, return to homepage after 2 seconds' });
+				setTimeout(() => {
+					location.href = './home.html';
+				}, 2000);
+			}
+
+			// 答题
+			Rendering();
+			// 点击
+			clickTopic();
+			// 计时
+			let i = 60;
+			let inter = null;
+			timeout()
+			function timeout() {
+				inter = setInterval(() => {
+					if (i > 0) {
+						i--;
+					} else {
+						i = 60;
+					}
+					resultTimeOUT(i);
+					// console.log(i);
+				}, 1000);
+			}
+
+
+			function clearfff(e) {
+				i = 60;
+				clearInterval(inter);
+				timeout();
+			}
+
+
+
+			// 下一题
+			function clickTopic(time = 1600, isTrue) {
+				let isClick = true;
+				$('.sel_list').on('click', '.sel_item', function () {
+					if (isClick) {
+						isClick = false;
+						if ($(this).attr('data-is') === 'true') {
+							$(this).addClass('checkImg');
+							result.correct = result.correct + 1;
+						} else {
+							$('[data-is=true]').addClass('checkImg').siblings().addClass('wrongImg');
+						};
+						setTimeout(() => {
+							if (result.index < topicData.rows.length) {
+								isClick = true;
+								Rendering();
+							} else {
+								$('.TopicModule').css('display', 'none').siblings('.result').css('display', 'block');
+								console.log('答题结束！', result);
+								renderingEnd();
+							}
+
+						}, time);
+					} else {
+
+					}
+
+					clearfff();
+					return;
+				});
+				if (isTrue) {
+					Rendering();
+				}
+			}
+			// 答题结束
+			function renderingEnd() {
+				$('.result .branch .num').text(result.correct * 20);
+				$('.accuracy .flex1 .text1').text(result.correct)
+				$('.accuracy .flex2 .text1').text(result.leng - result.correct);
+				if (result.correct * 20 >= 80) {
+					let i = Number(localStorage.getItem('answer-draw-index')) + 1;
+					localStorage.setItem('answer-draw-index', i);
+				}
+				let listCity = JSON.parse(localStorage.getItem('answer-draw-city'));
+				listCity.for(item => {
+					if (item.id == result.answerID && item.fen < result.correct * 20) {
+						item.fen = result.correct * 20;
+						return;
+					}
+				});
+				localStorage.setItem('answer-draw-city', JSON.stringify(listCity));
+			}
+			// 渲染 -题
+			function Rendering(fun) {
+				let data = topicData;
+				let idx = result.index || 0;
+				let Rows = data.rows;
+				let html = '';
+				$('.bottom_bg .bot').attr('src', data.cover);
+				$('.TopicModule .top .tit_n').text('Question ' + (idx + 1));
+				$('.TopicModule .tit').text(idx + 1 + '. ' + Rows[idx]['question']);
+				Rows[idx].option.for(item => {
+					html += `<div class="sel_item" data-is="${Rows[idx]['answer'] === item.num}"><img src="${Rows[idx]['answer'] === item.num ? '../img/true.png' : '../img/false.png'}">${item.value}</div>`;
+				});
+				$('.TopicModule .sel_list').html(html);
+				$('.TopicModule .page').text((idx + 1) + '/' + Rows.length);
+				result.index = result.index + 1;
+
+
+			}
+
+			// 计时器
+			// setStroke({max:5});
+
+			function resultTimeOUT(j) {
+				// console.log(123);
+				$('.seconds').text(j);
+				if (j == 0) {
+					if (result.index < topicData.rows.length) {
+						clickTopic(0, true);
+					} else {
+						$('.TopicModule').css('display', 'none').siblings('.result').css('display', 'block');
+						console.log('答题结束！', result);
+						renderingEnd();
+					}
+				}
+
+			}
+
+
+
+			// function time
+
+
+		});
+
+
+	</script>
+
+</body>
+
+</html>

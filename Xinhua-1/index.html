@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Treasure Hunt</title>
+	 <link rel="stylesheet" href="css/style.css">
+	 <link rel="stylesheet" href="css/config.css">
+	 <link rel="stylesheet" href="css/ani.css">
+    <script type="text/javascript">
+    	
+   		document.addEventListener('plusready', function(){
+   			//console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。")
+   			
+   		});
+   		
+    </script>
+</head>
+<body>
+	<!-- 背景 图-->
+	<div name="background">
+	   <div class="sun"><img src="https://imsilkroad.5xing.com.cn/assets/mpimg/images/sun.png" /></div>
+	   <div class="cloud"><img src="https://imsilkroad.5xing.com.cn/assets/mpimg/images/cloud.png" /></div>
+	   <div class="footer"><img src="https://imsilkroad.5xing.com.cn/assets/mpimg/images/footer-bj.png" /></div>
+	</div>
+	
+	<!-- index -->
+	<div>
+		<div class="index">
+			<img class="logo" src="https://imsilkroad.5xing.com.cn/assets/mpimg/images/index_logo.png" />
+			<div class="Animation">
+			  <img class="gifShow" src="#" />
+			  <div class="butImg">
+				  <a href="choose.html">
+					  <img src="https://imsilkroad.5xing.com.cn/assets/mpimg/images/index_but.png" />
+				  </a>
+			  </div>
+			</div>
+			<img src="https://imsilkroad.5xing.com.cn/assets/mpimg/images/index_text.png" class="footSrc" />
+		</div>
+		
+	</div>
+	<script src="js/jquery-1.8.3.min.js"></script>
+	<script src="js/index.js"></script>
+	<script>
+		"use strict";
+		
+		;$(document).ready(function(){
+			$('.gifShow').attr('src','https://imsilkroad.5xing.com.cn/assets/mpimg/images/Animation_n.gif').load(function(){
+				// 加载完成开始计时 5s后显示按钮
+				setTimeout(function(){
+					$('.butImg').addClass('active');
+				},5000);
+			});
+		});
+	</script>
+</body>
+</html>

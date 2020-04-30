@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	 <link rel="stylesheet" href="./css/style.css">
+	 <link rel="stylesheet" href="./css/config.css">
+    <title>新华丝路</title>
+	 <style>
+		 body{background-color: #1c7af9;}
+		 .logo{margin-top: 1rem;}
+		 .logo img{width: 1.5rem;display:block;margin:0 auto}
+		 .title{margin-top:.2rem;}
+		 .title img{width: 3rem;display:block;margin:0 auto}
+		 .loginBg{position: fixed;top: 50%;margin-top: -.75rem;width: 100%;height: auto;}
+		 .loginBg img{width: 75%;display:block;margin:0 auto}
+		 .buttons{position: fixed;bottom:1.2rem;left: 0;width: 100%;text-align: center;}
+		 .buttons button{display: inline-block; width: 1.3rem;height: .4rem;border: 2px solid #fff;color: #fff;font-size: .15rem;background-color: transparent;margin: 0 .1rem;border-radius: 4px;
+    font-weight: bold;}
+		 .buttons .selBut{background-color: #fff;color: #1c7af9;}
+	 </style>
+</head>
+<body>
+	<!--  https://xhsilkroad.5xing.com.cn/assets/mpimg  -->
+	<div class="index">
+		<div class='login text_c'>
+		    <div class="logo"><img src="https://xhsilkroad.5xing.com.cn/assets/mpimg/images/logo.png" /></div>
+		    <div class="title"><img src="https://xhsilkroad.5xing.com.cn/assets/mpimg/images/loginText.png" /></div>
+		    <div class="loginBg"><img src="https://xhsilkroad.5xing.com.cn/assets/mpimg/images/loginBg.png" /></div>
+		    <div class="buttons">
+		        <a href="javascript:clickPush('./zh/index.html','zh');"><button>中文</button></a>
+		        <a href="javascript:clickPush('./en/index.html','en');"><button>English</button></a>
+		    </div>
+		</div>
+	</div>
+	
+	<script src="js/jquery-1.8.3.min.js"></script>
+	<script src="js/index.js"></script>
+	<script type="text/javascript" charset="utf-8">
+		"use strict";
+		$(document).ready(function(){
+			if(!localStorage.getItem('answer-draw-index')){
+				localStorage.setItem('answer-draw-index',3);
+			}
+			
+		
+		});
+		function clickPush(push,language){
+			location.href = push;
+			localStorage.setItem('language',language);
+		}
+	</script>
+	
+</body>
+</html>

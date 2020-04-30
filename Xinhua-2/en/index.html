@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	 <link rel="stylesheet" href="../css/style.css">
+	 <link rel="stylesheet" href="../css/config.css">
+    <title>新华丝路</title>
+	 <style>
+		 /**index.wxss**/
+		 .navigation{position:fixed;top: 0;left: 0;width: 100%;z-index: 9999; height: .45rem;align-items: center;display: flex;}
+		 .navigation image{width:1.1rem;margin-left: .08rem;}
+		 .about-title{
+		   position:relative;
+		 }
+		 .about-bg{
+		   width:100%;
+		   height:3.6rem;
+		   /* margin-top:80rpx; */
+		 }
+		 .about-title-text{
+		   position:absolute;
+		   width:80%;
+		   bottom:.3rem;
+		   left:50%;
+		   margin-left:-40%;
+		   color:white;
+		   text-align: center;
+		 }
+		 .about-button{
+		   padding:.2rem 0;
+		   display:flex;
+		   flex-flow: column;
+		   align-items: center;
+		 }
+		 .about-button a{
+			 display:block;
+			 width:100%;
+		 }
+		 .about-button button{
+		   width:80%;height:.48rem;
+			margin:0 auto;
+		   background-color:#1C79F8;
+		   color:white;
+		   display:flex;
+		   justify-content: center;
+		   align-items: center;
+		   font-size:.19rem;
+		   border-radius:.06rem;
+			border:0;
+		 }
+		 .about-button span{
+		   width:80%;
+		   padding-top:.2rem;
+		 }
+		 .about-logo{
+		   width:40%;
+		   margin:0 auto;
+		 }
+		 .about-logo img{
+		   width:100%;
+		 }
+	 </style>
+</head>
+<body>
+	<!-- index  -->
+	<!--  https://xhsilkroad.5xing.com.cn/assets/mpimg  -->
+	<div>
+		 <div class="about-title" >
+		    <img class="about-bg" src="../img/bj.png" />
+		     <span class="about-title-text">Free answer questions, Free lottery, Chance to draw the business evaluation report provided by Xinhua silk road.</span>
+		 </div>
+		 <div class="about-button">
+				<a href="home.html"><button bindtap="handleClickPush">Start</button></a>
+		     <span>The Charming China Quiz is an interactive game designed by Xinhua Silk Road. Players can lean about the economy and culture of China's provinces and cities.</span>
+		 </div>
+		 <div class="about-logo">
+		    <img mode="widthFix" src='../img/logo.png' />
+		 </div>
+	</div>
+	
+	
+	<script src="../js/jquery-1.8.3.min.js"></script>
+	<script src="../js/index.js"></script>
+	<script type="text/javascript" charset="utf-8">
+		"use strict";
+		$(document).ready(function(){
+			
+		});
+	</script>
+	
+</body>
+</html>

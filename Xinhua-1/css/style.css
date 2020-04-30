@@ -1,0 +1,112 @@
+/* base */
+body,div,ul,ol,li,h1,p,h2,h3,h4,h5,h6,header,footer,main,nav{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+ul,ol,li{
+    list-style: none;
+}
+em,i{
+    font-style: normal;
+}
+img{
+	width: auto;
+	height: auto;
+}
+.width-1180{
+    width:1180px;
+    margin:0 auto;
+}
+.max-1180{
+    max-width:1180px;
+    margin:0 auto;
+}
+a{
+    text-decoration: none;
+}
+a.hover-blue:hover{
+    text-decoration: underline;
+    color:blue !important;
+}
+a.hover-white:hover{
+    text-decoration: underline;
+    color:white !important;
+}
+a.hover-default:hover{
+    text-decoration: underline;
+}
+
+
+
+.scroll-x{
+    overflow-x: auto;
+}
+.scroll-y{
+    overflow-y: auto;
+}
+.scroll-none{
+    overflow: none;
+}
+.clearfix::after{
+    content:'';
+    display:block;
+    height: 0;
+    clear:both;
+    visibility: hidden;
+    *zoom: 1;
+}
+.pointer{
+    cursor:pointer;
+}
+.text-hidden{
+    width:100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.filling-img{
+    max-width: 100%;
+}
+.auto-img{
+    width:100%;
+    height: auto;
+}
+.position-container{
+    position: fixed;
+    width:100%;
+    height:100%;
+    min-width: 1180px;
+    min-height:780px;
+    /* overflow: auto; */
+}
+.position-container-header,.position-container-footer{
+    width:100%;
+    height:10%;
+    background-color: white;
+}
+.position-container-main{
+    width:100%;
+    height:80%;
+    background-color:#ededed;
+}
+
+/* 滚动条 */
+.station-letter .list::-webkit-scrollbar {
+    /*滚动条整体样式*/
+    width : 10px;  /*高宽分别对应横竖滚动条的尺寸*/
+    height: 1px;
+}
+.station-letter .list::-webkit-scrollbar-thumb {
+    /*滚动条里面小方块*/
+    border-radius   : 10px;
+    background-color: skyblue;
+    background-image: -webkit-linear-gradient(45deg,rgba(255, 255, 255, 0.2) 25%,transparent 25%,transparent 50%,rgba(255, 255, 255, 0.2) 50%,rgba(255, 255, 255, 0.2) 75%,transparent 75%,transparent);
+}
+.station-letter .list::-webkit-scrollbar-track {
+    /*滚动条里面轨道*/
+    box-shadow   : inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background   : #ededed;
+    border-radius: 10px;
+}

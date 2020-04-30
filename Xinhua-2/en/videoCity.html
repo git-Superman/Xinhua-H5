@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	 <link rel="stylesheet" href="../css/style.css">
+	 <link rel="stylesheet" href="../css/config.css">
+	 <link rel="stylesheet" href="../css/home.css">
+    <title>新华丝路</title>
+	 <style>
+		 .borr8{border-radius: 8px;}
+		 .navigation{position:fixed;top: 0;left: 0;width: 100%;z-index: 9999; height: .45rem;align-items: center;display: flex;}
+		 .navigation img{width:1.1rem;margin-left: 15px;}
+		 
+		 .content{position: fixed;left: 0;width: 100%;height: 100%;box-sizing: border-box;padding:0 .2rem;}
+		 .title{color: #fff;font-size: .15rem; height:auto !important;background-color: #2f73e0; box-shadow:inset 0px -5px 0px #2c4db4,0 0 2px 1px #000;padding: .15rem .12rem .2rem;margin: .25rem 0;text-align: left !important; }
+		 
+		 .list_box{font-size: .16rem; height: 62%;color: #fff;background-color: #77a8f7; box-shadow:inset 0px -5px 0px #2b4cb3,0 0 2px 1px #000;padding: .1rem .12rem 0;}
+		 .list_box .tit{font-weight: 600;margin-bottom: .07rem;text-align: center;}
+		 .list{background-color: #213a70;height: 90%;padding: .12rem .15rem;box-sizing: border-box;}
+		 .list .item{background-color: #77a8f7; box-shadow:inset 0px -5px 0px #2b4cb3,0 0 2px 1px #000;padding: .1rem 0 .17rem;text-align: center;margin-bottom: .14rem;display: block;color:white;}
+		 .list .itemCurr{background-color: #ffbf13; box-shadow:inset 0px -5px 0px #bf7013,0 0 2px 1px #000;}
+		 [scroll-y="true"]{
+			 overflow-y: auto;
+		 }
+
+	 </style>
+</head>
+<body>
+	<!-- index  -->
+	<!--  https://xhsilkroad.5xing.com.cn/assets/mpimg  -->
+	<div>
+		
+		<div class="content index_bg" style="padding-top:20px;">
+		   <div class="title borr8">Watch Xinhua Silk Road's business environment assessment videos to get hints!</div>
+		
+		   <div class="list_box text_c borr8">
+		      <div class="tit">Select</div>
+		      <div scroll-y="true"  class="list borr8" id="list">
+		         <!-- <a href="javascript:;" class="item borr8">北京</a> -->
+		      </div>
+		   </div>
+		</div>
+		<!-- 底部按钮 -->
+		<footer class="icon-footer">
+			<a href="home.html">
+				<img src="../img/tab1.png" alt="">
+				<p>Challenge Time</p>
+			</a>
+			<a href="record.html">
+				<img src="../img/tab2.png" alt="">
+				<p>My Score</p>
+			</a>
+		</footer>
+		
+	</div>
+	
+	
+	<script src="../js/jquery-1.8.3.min.js"></script>
+	<script src="../js/index.js"></script>
+	<script src="../js/data.js"></script>
+	<script type="text/javascript" charset="utf-8">
+		"use strict";
+		$(document).ready(function(){
+			init();
+			
+			function init(){
+				let html = '';
+				let language = localStorage.getItem('language') || zh;
+				provice = provice.data.rows;
+				provice.for(item=>{
+					html+= `<a href="${item.link}" class="item borr8">${language === 'zh'?item.cnprovice:item.enprovice}</a>`;
+				})
+				$('#list').html(html)
+				// console.log(provice);
+			}
+		});
+	</script>
+	
+</body>
+</html>

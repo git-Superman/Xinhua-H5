@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/config.css">
+</head>
+
+<body>
+    <div class="swiper-tab">
+        <div class="swiper-tab-item active" data-class="head-ul1">新华丝路情报</div>
+        <div class="swiper-tab-item" data-class="head-ul2">丝路智讯参考</div>
+        <div class="swiper-tab-item" data-class="head-ul3">Belt&Road Weekly</div>
+    </div>
+
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/data.js"></script>
+    <script>
+
+        ; $(document).ready(() => {
+            //首页数据 console.log(getDataArr(0));
+            // 历史数据   console.log(getConlist(0));
+            $alert({ msg: '暂无相关数据', duration: 2000 })
+            $('.head-ul-nav').on('click', 'a', function () {
+                $(this).addClass('active').siblings().removeClass('active').parent().siblings('.' + $(this).attr('data-class')).addClass('active').siblings().removeClass('active');
+            })
+            // tab 切换
+            $('.swiper-tab').on('click', '.swiper-tab-item', function () {
+                $(this).addClass('active').siblings().removeClass('active');
+                $('.' + $(this).attr('data-class')).addClass('active').siblings().removeClass('active');
+            });
+
+
+            $('.click-push').on('click', function () {
+                let list = {}
+                list.title = $(this).data('title');
+                list.imgSrc = $(this).data('src');
+                list.desc = $(this).data('desc');
+                localStorage.setItem('magazine-details', JSON.stringify(list));
+                location.href = './detail.html';
+            })
+
+
+        });
+
+        function clickPush(data) {
+            console.log(data);
+            localStorage.setItem('magazine-details', JSON.stringify(data));
+            location.href = './detail.html';
+        }
+    </script>
+</body>
+
+</html>

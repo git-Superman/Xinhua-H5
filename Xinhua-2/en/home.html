@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	 <link rel="stylesheet" href="../css/style.css">
+	 <link rel="stylesheet" href="../css/config.css">
+	 <link rel="stylesheet" href="../css/home.css">
+    <title>Xinhua</title>
+	 <style>
+		 body{
+			 background-color:#1C7AF9;
+		 }
+		 
+	 </style>
+</head>
+<body>
+	<!-- index  -->
+	<!--  https://xhsilkroad.5xing.com.cn/assets/mpimg  -->
+	<div>
+		<!-- <div class="navigation bg_gg" style="padding:20px 0;">
+		   <img src='https://xhsilkroad.5xing.com.cn/assets/mpimg/images/logo2.png' mode="widthFix" />
+		 </div> -->
+		
+		<!-- 地图 -->
+		 <div class="content index_bg">
+		    <div class="title text_c"> <img src="../img/title.png" mode="widthFix" /> </div>
+		    <div style="height:auto;margin-top:.4rem">
+		       <div class="map-list">
+					 
+		       </div>
+		    </div>
+		 </div>
+		
+		<!-- 左侧按钮-->
+		 <div class="buttons">
+		   <div class="tips index_tips" style="background: url(../img/download.png) center center no-repeat;background-size: 100%;font-size:.14rem">
+		       <div class="textView">
+		          <div>Watch the Xinhua silk road</div>
+		          <div>video for tips</div>
+		       </div>
+		       <a href="videoCity.html" class="gksp text_c">Watch video</a>
+		    </div>
+		    <div class="hqts text_c but" name="footer-left">
+		          <img src='https://xhsilkroad.5xing.com.cn/assets/mpimg/images/index_icon2.png' />
+		          <div class="but_text" style="padding-top:.01rem">Get Hints</div>
+		    </div>
+		 </div>
+		 <div class="fxhj fxhj-right text_c but show-share" name="footer-right">
+		       <img src='https://xhsilkroad.5xing.com.cn/assets/mpimg/images/index_icon3.png' />
+		       <div class="but_text" style="font-size:.1rem;padding-top:0;">Share & Lucky Draw</div>
+		      <button bindtap="handleClickShare" data-id="1"></button>
+		 </div>
+	</div>
+	
+	<!-- 底部按钮 -->
+	<footer class="icon-footer">
+		<a href="home.html" class="active">
+			<img src="../img/tab1-act.png" alt="">
+			<p>Challenge Time</p>
+		</a>
+		<a href="record.html">
+			<img src="../img/tab2.png" alt="">
+			<p>My Score</p>
+		</a>
+	</footer>
+	
+	
+	
+	<!-- 分享蒙层 -->
+	<div class="pages-background">
+	  <div class="share-box">
+	    <img class="img1" src="https://imsilkroad.5xing.com.cn/assets/mpimg/images/close-white.png" />
+	    <img class="img2" src="https://xhsilkroad.5xing.com.cn/assets/img0306/share-cn.jpg" />
+	    <div class="share-button">
+	      <button ><a href="javascript:showMaskLayer();"><img style="width:.2rem" src="../img/wechat.png" alt=""> <img style="width:.5rem" src="../img/share.png" alt=""></a></button>
+	      <button ><a href="https://xhsilkroad.5xing.com.cn/assets/img0306/share-en.jpg" download="share.jpg"><img style="width:.2rem" src="../img/picture.png" /><img style="width:.4rem" src="../img/save.png" alt=""></a></button>
+	    </div>
+	  </div>
+	</div>
+	<main class="mask-layer">
+		  <div>
+				<img src="http://www.5xing.com.cn/brochure/img/mask.png" alt="">
+		  </div>
+	 </main>
+	
+	
+	
+	<script src="../js/jquery-1.8.3.min.js"></script>
+		<script src="../js/data.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/index.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			"use strict";
+			$(document).ready(function(){
+				let html = '';
+				let list = provice.data.rows;
+				let language = localStorage.getItem('language') || 'zh';
+				console.log(list);
+				list.for(item=>{
+					item.fen = 0;
+				});
+				if(!localStorage.getItem('answer-draw-city')){
+					localStorage.setItem('answer-draw-city',JSON.stringify(list));
+				}
+				list.for(item=>{
+					html+=`<div class="map-item">
+								 <div class="map-item-it">
+									 <a href="javascript:clickPush(${item.id});" class="map-item-box">
+										 <img class="map-item-box-img" src="${item.backimage}" />
+										 <span class="map-item-box-text">${language === 'zh'?item.cnprovice:item.enprovice}</span>
+									 </a>
+								 </div>
+							 </div>`;
+						});
+				$('.map-list').html(html);
+				
+				// 获取提示
+				$('[name="footer-left"]').on('click',function(){
+					if($('.buttons .index_tips').toggleClass('block').hasClass('block')){
+						setTimeout(function(){
+							$('.buttons .index_tips').removeClass('block');
+						},5000);
+					};
+					
+				});
+				
+				
+				$('.share-box .img1').click(function(e){
+					
+					$('.pages-background').css('display','none');
+				});
+				
+				$('.show-share').click(function(){
+					$('.pages-background').css('display','flex');
+				});
+				
+				
+			});
+			
+			// 跳转
+			function clickPush(id){
+				console.log(id)
+				localStorage.setItem('answerID',id);
+				location.href = 'answer.html';
+			}
+			// 显示分享提示
+			function showMaskLayer(){
+				$('.pages-background').css('display','none');
+				$('.mask-layer').addClass('block').on('click', function () {
+				    $(this).removeClass('block');
+				})
+			}
+		</script>
+		
+	</body>
+	</html>

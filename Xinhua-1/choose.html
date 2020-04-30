@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Treasure Hunt</title>
+	 <link rel="stylesheet" href="css/style.css">
+	 <link rel="stylesheet" href="css/config.css">
+	 <link rel="stylesheet" href="css/ani.css">
+</head>
+<body>
+	<!-- 背景 图-->
+	<div name="background">
+	   <div class="sun"><img src="https://imsilkroad.5xing.com.cn/assets/mpimg/images/sun.png" /></div>
+	   <div class="cloud"><img src="https://imsilkroad.5xing.com.cn/assets/mpimg/images/cloud.png" /></div>
+	   <div class="footer"><img src="https://imsilkroad.5xing.com.cn/assets/mpimg/images/footer-bj.png" /></div>
+	</div>
+	
+	<!-- index -->
+	<div class="choose">
+		<div class="content" style="background:url(https://imsilkroad.5xing.com.cn/assets/mpimg/images/line.png) center center no-repeat;background-size:contain">
+		   <div class="left four" >
+		      <img onclick="clickPUSH(4)" src="https://imsilkroad.5xing.com.cn/assets/mpimg/images/icon-four.png" />
+		   </div>
+		   <div class="right three">
+		      <img onclick="clickPUSH(3)" src="https://imsilkroad.5xing.com.cn/assets/mpimg/images/icon-three.png" />
+		   </div>
+		   <div class="left two">
+		      <img onclick="clickPUSH(2)" src="https://imsilkroad.5xing.com.cn/assets/mpimg/images/icon-two.png" />
+		   </div>
+		   <div class="right one">
+		      <img onclick="clickPUSH(1)" src="https://imsilkroad.5xing.com.cn/assets/mpimg/images/icon-one.png" />
+		   </div>
+		</div>
+		
+		<div class="footerIcon">
+		  <a href="rule.html" class="rule" ><img src='https://imsilkroad.5xing.com.cn/assets/mpimg/images/icon-rule.png' /><span>Guide</span></a>
+		  <a href="chest.html" class="rule chest" ><img src='https://imsilkroad.5xing.com.cn/assets/mpimg/images/icon-chest.png' /><span>Treasure</span></a>
+		  <a href="javascript:;" class="show-share rule"><img src="https://imsilkroad.5xing.com.cn/assets/mpimg/images/icon-share.png" /><span>Share</span></a>
+		</div>
+
+	</div>
+	
+	<div class="pages-background">
+	  <div class="share-box">
+	    <img class="img1" src="https://imsilkroad.5xing.com.cn/assets/mpimg/images/close-white.png" />
+	    <img class="img2" src="https://imsilkroad.5xing.com.cn/assets/mpimg/images/bg-share.jpg" />
+	    <div class="share-button">
+	      <button ><a href="javascript:showMaskLayer();"><img src="https://imsilkroad.5xing.com.cn/assets/mpimg/images/WeChat.png" /></a></button>
+	      <button ><a href="https://imsilkroad.5xing.com.cn/assets/mpimg/images/bg-share.jpg" download="share.jpg"><img src="https://imsilkroad.5xing.com.cn/assets/mpimg/images/bag-picture.png" /></a></button>
+	    </div>
+	  </div>
+	</div>
+		<!-- 分享蒙层 -->
+	<main class="mask-layer">
+		  <div>
+				<img src="http://www.5xing.com.cn/brochure/img/mask.png" alt="">
+		  </div>
+	 </main>
+	
+	
+	
+	
+	<script src="js/jquery-1.8.3.min.js"></script>
+	<script src="js/index.js"></script>
+	<script>
+		"use strict";
+		
+		;$(document).ready(function(){
+			$('.share-box .img1').click(function(e){
+				
+				$('.pages-background').css('display','none');
+			});
+			
+			$('.show-share').click(function(){
+				$('.pages-background').css('display','flex');
+			});
+			
+		});
+		function showMaskLayer(){
+			$('.pages-background').css('display','none');
+			$('.mask-layer').addClass('block').on('click', function () {
+			    $(this).removeClass('block');
+			})
+		}
+		function clickPUSH(id){
+			localStorage.setItem('answerID',id);
+			location.href="answer.html";
+		}
+	</script>
+</body>
+</html>
